@@ -1,0 +1,38 @@
+.section-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 4rem 6rem 8rem;
+    /* Increased left padding to accommodate dots */
+    overflow: hidden;
+}
+
+.section-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ddd;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 600px;
+}
