@@ -1,0 +1,163 @@
+/* Skills Container */
+.skills-section {
+    background-color: #080808;
+    color: #D6D6D6;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.skills-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Grid Layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.2fr;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 1.5rem;
+    grid-template-areas:
+        "header header header"
+        "left mid-top right"
+        "left mid-bot right"
+        "subjects subjects leetcode"
+        "bottom bottom bottom";
+}
+
+/* Card Styling */
+.skill-card {
+    background: rgba(44, 44, 44, 0.3);
+    /* Low opacity #2C2C2C equivalent */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid #5F5F5F;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: #9A9A9A;
+    background: rgba(44, 44, 44, 0.5);
+}
+
+/* Grid Area Assignments */
+.area-header {
+    grid-area: header;
+}
+
+.area-left {
+    grid-area: left;
+}
+
+.area-mid-top {
+    grid-area: mid-top;
+}
+
+.area-mid-bot {
+    grid-area: mid-bot;
+}
+
+.area-right {
+    grid-area: right;
+}
+
+.area-subjects {
+    grid-area: subjects;
+}
+
+.area-leetcode {
+    grid-area: leetcode;
+}
+
+.area-bottom {
+    grid-area: bottom;
+}
+
+/* Specific Content Styling */
+.title-text {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    height: 100%;
+    justify-content: center;
+}
+
+.skill-item-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #D6D6D6;
+}
+
+.big-text {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.horizontal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.subject-item {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.center-content {
+    align-items: center;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "header header"
+            "left right"
+            "mid-top mid-bot"
+            "subjects subjects"
+            "leetcode leetcode"
+            "bottom bottom";
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .skill-card {
+        min-height: 100px;
+        /* Ensure visibility */
+    }
+}

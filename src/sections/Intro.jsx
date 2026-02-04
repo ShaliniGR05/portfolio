@@ -1,39 +1,38 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import '../styles/intro.css';
 
 const Intro = () => {
-    const sectionRef = useRef(null);
-    const textRef = useRef(null);
+    const containerRef = useRef(null);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.fromTo(textRef.current,
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1.5,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top 60%", // animation starts when top of section hits 60% viewport
-                        toggleActions: "play none none reverse"
-                    }
+    useGSAP(() => {
+        gsap.fromTo(
+            ".intro-text-line",
+            { x: 80, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                duration: 1.5,
+                stagger: 0.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".intro-section",
+                    start: "top 80%",
+                    toggleActions: "play none none reset"
                 }
-            );
-        }, sectionRef);
+            }
+        );
+    }, { scope: containerRef });
 
-        return () => ctx.revert();
-    }, []);
 
     return (
-        <div ref={sectionRef} className="section-content intro-section">
-            <div ref={textRef}>
-                <h2>Hello, I'm</h2>
-                <h1 style={{ background: 'linear-gradient(to right, #fff, #666)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                    ShaliniGR
-                </h1>
-                <p>Senior Frontend Developer building premium web experiences.</p>
+        <div ref={containerRef} className="intro-section">
+            <div className="intro-content">
+                <h1 className="intro-text-line intro-highlight">Hii There!</h1>
+                <p className="intro-text-line">A noob IT student</p>
+                <p className="intro-text-line">Working on projects and hates coding</p>
+                <p className="intro-text-line">Just crawling with stuffs!</p>
             </div>
         </div>
     );
